@@ -1,9 +1,10 @@
 import React from "react";
 import EquipWandBtn from "./EquipWandBtn";
 
-export default function InventorySlot(props, clickHandler) {
-  var { itemName, itemCount, itemDescription, isEquipped } = props.data;
-  console.log(clickHandler);
+export default function InventorySlot(data, clickEquipWandBtnHandler) {
+  var { itemName, itemCount, itemDescription, isEquipped } = data.data;
+  console.log("InventorySlotoutput func", data.clickEquipWandBtnHandler);
+  console.log("InvenorySlot", data);
   return (
     <>
       <div className="card bg-dark">
@@ -15,10 +16,10 @@ export default function InventorySlot(props, clickHandler) {
           <h6 className="card-text">
             <small>{itemDescription}</small>
           </h6>
-          {props.data.isWand === true ? (
+          {data.data.isWand === true ? (
             <EquipWandBtn
-              data={props.data}
-              clickHandler={clickHandler}
+              data={data.data}
+              clickEquipWandBtnHandler={data.clickEquipWandBtnHandler}
               isEquipped={isEquipped}
             />
           ) : (

@@ -1,14 +1,15 @@
 import React from "react";
 
-function EquipWandBtn(data, clickHandler, isEquipped) {
+function EquipWandBtn(data, isEquipped) {
   var { id } = data.data;
-  console.log(data.data.id);
-  console.log(clickHandler);
+  var clickEquipWandBtnHandler = data.clickEquipWandBtnHandler;
+  console.log("EquipWandBtn", data.data);
+  console.log("EquipWandBtn func", data.clickEquipWandBtnHandler);
 
   return (
     <small>
       <button
-        onClick={clickHandler(id, isEquipped)}
+        onClick={clickEquipWandBtnHandler(id, isEquipped)}
         className="btn btn-small btn-secondary text-dark"
       >
         {isEquipped ? "Equipped" : "Equip Wand"}

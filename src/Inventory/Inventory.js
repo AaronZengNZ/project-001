@@ -16,12 +16,12 @@ function Inventory() {
   //     changeEquippedArrItems(concatCloneOfEquippedArrItems);
   //   }
   // });
-  function clickEquipWandBtnHandler(id, isEquipped) {
+  const clickEquipWandBtnHandler = (id, isEquipped) => {
     var concatCloneOfEquippedArr = equippedArr.concat();
     var indexOfId = equippedArrItems.findIndex(id);
     concatCloneOfEquippedArr[indexOfId] = !isEquipped;
     changeEquippedArr(concatCloneOfEquippedArr);
-  }
+  };
 
   console.log(clickEquipWandBtnHandler);
 
@@ -31,11 +31,12 @@ function Inventory() {
       <div className="m-2">
         <div className="row">
           {InventoryData.map((data) => {
+            console.log("clickEquipWandBtnHandler data:", data);
             return (
               <div key={data.id} className="col p-0">
                 <InventorySlot
                   data={data}
-                  clickHandler={clickEquipWandBtnHandler}
+                  clickEquipWandBtnHandler={clickEquipWandBtnHandler}
                 />
               </div>
             );
